@@ -107,3 +107,4 @@ export const checkPasswordStrength = (password: string): {
 
   return { score, label, color, feedback };
 };
+
