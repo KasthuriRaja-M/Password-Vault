@@ -171,7 +171,10 @@ const PasswordVault: React.FC<PasswordVaultProps> = ({
       {(showAddForm || editingPassword) && (
         <PasswordForm
           password={editingPassword}
-          onSave={editingPassword ? handleEditPassword : handleAddPassword}
+          onSave={editingPassword ? 
+            (password) => handleEditPassword({...password, id: editingPassword.id, createdAt: editingPassword.createdAt, updatedAt: new Date()}) : 
+            handleAddPassword
+          }
           onCancel={() => {
             setShowAddForm(false);
             setEditingPassword(null);
